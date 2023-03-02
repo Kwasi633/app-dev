@@ -8,14 +8,16 @@ function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
+        <View style={styles.header}>
+        <ImageBackground
         source={require('./assets/rfid-chip.jpg')}
         style={styles.backgroundImage}
-        resizeMode="cover"
+        //resizeMode="cover"
       >
+      
         <View style={styles.logoContainer}>
           <Image
-            source={require('./assets/favicon.png')}
+            source={require('./assets/daila-1.png')}
             style={styles.logo}
           />
           <Text style={styles.welcome}>Welcome</Text>
@@ -23,6 +25,8 @@ function HomeScreen() {
             Your Dynamic Artificial Intelligence Learning App
           </Text>
         </View>
+    </ImageBackground>
+    </View>
         <View style={styles.buttonContainer}>
           <Button title="Login" onPress={() => navigation.navigate('Login')} />
           <View style={styles.signupContainer}>
@@ -32,7 +36,6 @@ function HomeScreen() {
             </TouchableOpacity>
           </View>
         </View>
-      </ImageBackground>
     </View>
   );
 }
@@ -44,29 +47,43 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     width: '100%',
-    height: '40%',
-    borderBottomWidth: 60
+    //height: '100%',
+    borderBottomLeftRadius: 100,
+    borderBottomRightRadius: 300
+    //borderBottomWidth: 5
   },
+
+  header: {
+    flex: 1,
+    width: '90%',
+    height: '40%',
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 150,
+    color: 'blue'
+},
   logoContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   logo: {
-    width: 200,
-    height: 200,
+    width: '50%',
+    //height: 100,
   },
   welcome: {
     color: '#00FFFF',
     fontSize: 64,
     fontWeight: 'bold',
-    marginTop: 20,
+    //marginTop: 20,
   },
   subtitle: {
-    color: 'white',
-    fontSize: 20,
-    marginTop: 10,
-  },
+  color: 'white',
+  fontSize: 16.5,
+  //marginTop: 10,
+  textAlign: 'center',
+  alignSelf: 'center',
+},
+
   buttonContainer: {
     flex: 1,
     justifyContent: 'flex-end',
