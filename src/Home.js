@@ -1,107 +1,258 @@
-import React from 'react';
-import { View, Button, Text, ImageBackground, Image, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, Button, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native';
+
+
+
 
 function HomeScreen() {
-  const navigation = useNavigation();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+   const navigation = useNavigation();
 
   return (
+
+    <ScrollView>
+    
     <View style={styles.container}>
-        <View style={styles.header}>
-        <ImageBackground
-        source={require('./assets/rfid-chip.jpg')}
-        style={styles.backgroundImage}
-        //resizeMode="cover"
-      >
-      
-        <View style={styles.logoContainer}>
-          <Image
-            source={require('./assets/daila-1.png')}
+         <View style={styles.subContainer}>
+              <Image  source={require('./assets/daila-1.png')}
             style={styles.logo}
           />
-          <Text style={styles.welcome}>Welcome</Text>
-          <Text style={styles.subtitle}>
-            Your Dynamic Artificial Intelligence Learning App
-          </Text>
+                   <Text style={styles.welcome}>Welcome</Text>
+                   <Text style={styles.subtitle}>
+                       Your Dynamic AI Learning App
+                  </Text>
+              </View>
+      
+        <KeyboardAvoidingView>
+        
+        <View style={styles.inputContainer}>
+          <Image source={require('./assets/download.png')}
+           style={styles.icon}  />
+      
+              <TextInput
+              style={styles.input}
+              placeholder="Enter your name" 
+              value={username}
+              onChangeText={setUsername}
+              />
+            
         </View>
-    </ImageBackground>
-    </View>
-        <View style={styles.buttonContainer}>
-          <Button title="Login" onPress={() => navigation.navigate('Login')} />
-          <View style={styles.signupContainer}>
-            <Text style={styles.signupText}>Need an account? </Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-              <Text style={[styles.signupText, styles.signupLink]}>Sign Up</Text>
-            </TouchableOpacity>
-          </View>
+
+        <View style={styles.inputContainer}>
+          <Image source={require('./assets/passWord.png')} style={styles.icon} />
+          
+          <TextInput
+              style={styles.input}
+              placeholder="Enter your password" 
+              value={password}
+              secureTextEntry={true}
+              onChangeText={setPassword}
+              />
         </View>
-    </View>
-  );
+
+
+        <TouchableOpacity onPress={() => navigation.navigate('passwordReset')}>
+          <Text  style={styles.subtitleB}>
+            Forgot Password?
+        </Text>
+
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+        onPress={() => 
+        navigation.navigate('Login')} 
+        style = {styles.customLogIn}>
+          <Text style={styles.text}>Login</Text>
+        </TouchableOpacity>
+  
+            <View style={styles.signupContainer}>
+                <Text style={styles.signupText}>Need an account? </Text>
+                
+                <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+                    <Text style={[styles.signupText, styles.signupLink]}>Sign Up</Text>
+              </TouchableOpacity>
+
+            </View>
+        </KeyboardAvoidingView>
+      </View>
+  </ScrollView>
+  
+    );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  backgroundImage: {
-    flex: 1,
-    width: '100%',
-    //height: '100%',
-    borderBottomLeftRadius: 100,
-    borderBottomRightRadius: 300
-    //borderBottomWidth: 5
+    //alignItems: 'center', 
+    //justifyContent: 'center'
   },
 
-  header: {
-    flex: 1,
-    width: '90%',
-    height: '40%',
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 150,
-    color: 'blue'
-},
-  logoContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    width: '50%',
-    //height: 100,
-  },
-  welcome: {
-    color: '#00FFFF',
-    fontSize: 64,
-    fontWeight: 'bold',
-    //marginTop: 20,
-  },
-  subtitle: {
-  color: 'white',
-  fontSize: 16.5,
-  //marginTop: 10,
-  textAlign: 'center',
-  alignSelf: 'center',
-},
+  subContainer:{
+        backgroundColor: "#3C4142",
+        //padding: 100,
+        height: 280,
+        marginTop: 0,
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
+        alignItems: 'center', 
+        justifyContent: 'center',
+        width: '100%'
+      },
 
-  buttonContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 50,
+     welcome: {
+      color: '#0bdc9f',
+      fontSize: 46,
+      fontWeight: 'bold',
+      fontStyle: 'normal',
+    },
+
+    subtitle: { 
+      color: 'white',
+       fontSize: 16,
+       textAlign: 'center',
+      width: 250,
+      marginBottom: 30,
+      //fontWeight: 'bold',
+    },
+
+    logo: {
+      width: 150,
+      height: 200,
+      marginBottom: 0,
+      
+    },
+
+    inputContainer: {
+      padding: 10,
+      backgroundColor: 'white',
+      marginTop: 30,
+      flexDirection: 'row',
+      borderRadius: 10,
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: '#ddd',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 5,
+       elevation: 5,
+       marginLeft: 20,
+       marginRight: 20,    
+    },
+    
+    
+    icon: {
+    marginRight: 10,
+    height: 15,
+    width: 15
   },
-  signupContainer: {
-    flexDirection: 'row',
-    marginTop: 20,
+
+  input: {
+    flex: 1,
+    height: 40,
+  },
+
+     subtitleB: { 
+      color: 'black',
+       fontSize: 10,
+       textAlign: 'right',
+      width: 100,
+      marginTop: 10,
+       fontWeight: 'bold',
+       right: 25,
+       position: 'absolute',
+     },
+
+      signupContainer: {
+        flexDirection: 'row',
+        marginBottom: 10,
+        marginTop: 80,
+        alignSelf: 'center',
+  },
+      signupText: {
+      color: 'black',
+    },
+
+    signupLink: {
+      fontWeight: 'bold',
+      marginLeft: 5,
+      color: 'black'
+  },
+
+    customLogIn: {
+    backgroundColor: '#3C4142',
+    borderRadius: 10,
+    padding: 8,
+    width: '70%',
     alignSelf: 'center',
+    marginTop: 50,
+    alignItems: 'center',  
+    height: 40,
+    },
+  
+  text: {
+    color: '#0bdc9f',
+    fontSize: 15,
+    fontWeight: 'bold'
   },
-  signupText: {
-    color: 'black',
-  },
-  signupLink: {
-    fontWeight: 'bold',
-    marginLeft: 5,
-    color: 'black'
-  },
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+})
+
+
+
 
 export default HomeScreen;
