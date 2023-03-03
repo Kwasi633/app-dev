@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 function LoginScreen() {
 
-    const [levelOfStudy, setLevelOfStudy] = useState('Beginner');
+    const [levelOfStudy, setLevelOfStudy] = useState('High School');
     const [interestedTopics, setInterestedTopics] = useState('English');
 
     const navigation = useNavigation();
@@ -32,9 +32,9 @@ function LoginScreen() {
                 onValueChange={(itemValue) => setLevelOfStudy(itemValue)}
                 >
               
-              <Picker.Item label="Beginner" value="Beginner" />
-              <Picker.Item label="Intermediate" value="Intermediate" />
-              <Picker.Item label="Advanced" value="Advanced" />
+              <Picker.Item label="High School" value="High School" />
+              <Picker.Item label="College" value="College" />
+              <Picker.Item label="University" value="University" />
                 </Picker>
            </View>
          
