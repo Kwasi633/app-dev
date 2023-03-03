@@ -7,7 +7,7 @@ function SignupScreen() {
 
 const questions = ['What math topics do you feel most confident in?',
  'What science topics do you struggle with the most?', 
- 'What study habits or strategies have worked bestfor you in math?'];
+ 'What study habits or strategies have worked bes tfor you in math?'];
 
 
 const [questionIndex, setQuestionIndex] = useState(0);
@@ -24,9 +24,8 @@ const handleAnswerSubmit = () => {
     navigation.navigate('Answers');
   }
 };
-
   return (    
-    
+    <KeyboardAvoidingView>
     <ScrollView>
     
       <View style={styles.container}>
@@ -45,12 +44,17 @@ const handleAnswerSubmit = () => {
           onChangeText={(text) => setAnswerInput(text)}
         />     
         <Button title='>>' onPress={handleAnswerSubmit} />
+        </View>
+
+        <View style={styles.signupContainer}>
         
         </View>
-         
-       
+
     </View>
-  </ScrollView>  
+  </ScrollView> 
+    </KeyboardAvoidingView>
+    
+     
     );
 }
 
@@ -61,7 +65,12 @@ const handleAnswerSubmit = () => {
 
 
   const styles = StyleSheet.create({
-     
+    
+     keyboardAvoidingView: {
+    flex: 1,
+  },
+
+
      container: {
     flex: 1,
     alignItems: 'center', 
@@ -157,7 +166,14 @@ fontWeight: 'bold',
 textAlign: 'center',
 },
 
-
+      signupContainer: {
+        flexDirection: 'row',
+        marginBottom: 10,
+        marginTop: 80,
+        alignSelf: 'center',
+        backgroundColor: 'red',
+        height: 100
+  },
 
 
 
