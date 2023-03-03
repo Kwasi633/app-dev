@@ -3,8 +3,6 @@ import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity, ScrollView,
 import { useNavigation } from '@react-navigation/native';
 
 
-
-
 function HomeScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

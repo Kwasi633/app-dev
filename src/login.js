@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
+import { useNavigation } from '@react-navigation/native';
+
 
 function LoginScreen() {
 
     const [levelOfStudy, setLevelOfStudy] = useState('Beginner');
-  const [interestedTopics, setInterestedTopics] = useState('English');
+    const [interestedTopics, setInterestedTopics] = useState('English');
+
+    const navigation = useNavigation();
+
 
     return (
     <View style={styles.container}>
@@ -53,7 +58,7 @@ function LoginScreen() {
         <View>
              <TouchableOpacity 
         onPress={() => 
-        navigation.navigate('Login')} 
+        navigation.navigate('Signup')} 
         style = {styles.customLogIn}>
           <Text style={styles.text}>NEXT</Text>
         </TouchableOpacity>
