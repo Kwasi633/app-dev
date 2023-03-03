@@ -74,7 +74,6 @@ function HomeScreen() {
                 <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
                     <Text style={[styles.signupText, styles.signupLink]}>Sign Up</Text>
               </TouchableOpacity>
-
             </View>
         </KeyboardAvoidingView>
       </View>
@@ -138,9 +137,9 @@ const styles = StyleSheet.create({
       shadowOffset: { width: 0, height: 2 },
       shadowOpacity: 0.1,
       shadowRadius: 5,
-       elevation: 5,
-       marginLeft: 20,
-       marginRight: 20,    
+      elevation: 5,
+      marginLeft: 20,
+      marginRight: 20,    
     },
     
     
