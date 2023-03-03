@@ -6,8 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 function SignupScreen() {
 
 const questions = ['What math topics do you feel most confident in?',
- 'What science topics do you struggle with the most?', 
- 'What study habits or strategies have worked bes tfor you in math?'];
+ 'What math topics do you struggle with the most?', 
+ 'What study habits or strategies have worked best for you in math?'];
 
 
 const [questionIndex, setQuestionIndex] = useState(0);
