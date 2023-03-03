@@ -7,11 +7,10 @@ import { useNavigation } from '@react-navigation/native';
 
 function LoginScreen() {
 
-    const [levelOfStudy, setLevelOfStudy] = useState('High School');
+    const [levelOfStudy, setLevelOfStudy] = useState('Highschool');
     const [interestedTopics, setInterestedTopics] = useState('English');
 
     const navigation = useNavigation();
-
 
     return (
     <View style={styles.container}>

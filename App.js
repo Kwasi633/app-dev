@@ -8,6 +8,7 @@ import HomeScreen from './src/Home';
 import LoginScreen from './src/selectLevel';
 import SignupScreen from './src/questions';
 import CheckingAnswers from './src/Answers';
+import LoadScreen from './src/loadingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,8 @@ function App() {
             headerTitle: '',
           }}
          />
+          <Stack.Screen name="LoadingScreen" component={LoadScreen} />
+
          </Stack.Navigator>
     </NavigationContainer>
   );

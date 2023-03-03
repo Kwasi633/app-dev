@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
       fontStyle: 'normal',
     },
 
-    subtitle: { 
+      subtitle: { 
       color: 'white',
        fontSize: 16,
        textAlign: 'center',
