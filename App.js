@@ -16,6 +16,13 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+
+        <Stack.Screen name="LoadingScreen" component={LoadScreen} 
+         options={{
+            headerTitle: '',
+          }}
+        />
+
         <Stack.Screen name="Home" component={HomeScreen} 
           options={{
             headerTitle: '',
@@ -36,7 +43,7 @@ function App() {
             headerTitle: '',
           }}
          />
-          <Stack.Screen name="LoadingScreen" component={LoadScreen} />
+          
 
          </Stack.Navigator>
     </NavigationContainer>

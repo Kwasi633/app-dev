@@ -4,7 +4,6 @@ import {Picker} from '@react-native-picker/picker';
 
 import { useNavigation } from '@react-navigation/native';
 
-
 function LoginScreen() {
 
     const [levelOfStudy, setLevelOfStudy] = useState('Highschool');

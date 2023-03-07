@@ -3,7 +3,6 @@ import { View, StyleSheet, Text, Image } from 'react-native';
 
 function CheckingAnswers() {
 
-    
 return (
     <View style={styles.container}>
       <View style={styles.subContainerB}>

@@ -42,9 +42,11 @@ const handleAnswerSubmit = () => {
 if (isLoading){
   return (
     <View style={styles.loadingContainer}>
-        <Image source={require('./assets/daila-1.png') }
-           style={styles.logo}  />
-           <Text style={styles.subtitle}>CHECKING ANSWERS.....</Text>
+        <Image source={require('./assets/Iconnn.png') }
+           style={styles.logo} 
+           resizeMode='contain'
+           />
+           <Text style={styles.subtitle}>Checking Answers...</Text>
     </View>
   );
 }
@@ -64,14 +66,18 @@ if (isLoading){
           style={styles.answerInput}
           placeholder="Enter Answer"
           value={answerInput}
+          multiline={true}
           onChangeText={(text) => setAnswerInput(text)}
         />     
         <Button title='>>' onPress={handleAnswerSubmit} />
         </View>
 
-        <View style={styles.signupContainer}>
-        
+      <View style={styles.cancelContainer}>
+        <View style={styles.numContainer}> 
+           <Text style={styles.xxx}>X</Text>
         </View>
+      </View> 
+        
 
     </View>
   </ScrollView> 
@@ -87,8 +93,8 @@ if (isLoading){
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent',
-     blurRadius: 30,
+    backgroundColor: '#f8f8f6',
+     blurRadius: 580,
 
   },
 
@@ -110,7 +116,7 @@ if (isLoading){
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
         alignItems: 'center', 
-       justifyContent: 'center',
+        justifyContent: 'center',
         borderWidth: 5,
         borderColor: '#ddd',
         shadowColor: '#000',
@@ -128,6 +134,26 @@ if (isLoading){
         marginLeft: 35,
         marginRight: 35, 
         width: '93%'
+     },
+
+        numContainer:{
+        height: 60,
+        backgroundColor: '#3C4142',
+        borderTopRightRadius: 90,
+        borderTopLeftRadius: 90,
+        borderBottomLeftRadius: 90,
+        borderBottomRightRadius: 90,
+        alignItems: 'center', 
+        justifyContent: 'center',
+        borderWidth: 5,
+        borderColor: '#ddd',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 5,
+        elevation: 55, 
+        marginTop: 10, 
+        width: 60
      },
 
      welcome: {
@@ -148,12 +174,12 @@ if (isLoading){
       //fontWeight: 'bold',
     },
 
-     inputContainer: {
+      inputContainer: {
       padding: 10,
       backgroundColor: 'white',
       marginTop: 70,
       flexDirection: 'row',
-      borderRadius: 10,
+      borderRadius: 15,
       alignItems: 'center',
       borderWidth: 1,
       borderColor: '#ddd',
@@ -166,21 +192,11 @@ if (isLoading){
       marginRight: 20,    
     },
 
-    answerInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 10,
-    //backgroundColor: 'red'
-},
-
-
     answerInput: {
     borderWidth: 1,
-   borderColor: 'white',
+    borderColor: 'white',
     borderRadius: 5,
     padding: 5,
-    marginRight: 10,
     flex: 1,
 },
 
@@ -196,27 +212,26 @@ textAlign: 'center',
         marginBottom: 10,
         marginTop: 80,
         alignSelf: 'center',
-        backgroundColor: 'red',
+        backgroundColor: 'white',
         height: 100
   },
 
     logo: {
-      width: 150,
-      height: 200,
-      marginBottom: 0,
-      
-    },
-
-    logo: {
-         width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 300,
+    height: 350,
     justifyContent: 'center',
     alignItems: 'center',
-    },
+    flex: 1,  
+    marginBottom: 0,
+    marginTop: 100,
+  },
 
     background: {
       flex: 1,
+  },
+
+  cancelButton:{
+    
   },
 
      subtitle: { 
@@ -224,9 +239,25 @@ textAlign: 'center',
        fontSize: 16,
        textAlign: 'center',
       width: 250,
-      marginTop: 50,
+      marginTop: 0,
       fontWeight: 'bold',
+      marginBottom: 100
     },
+
+    cancelContainer: {
+      height: 89,
+      //backgroundColor: 'white',
+      marginTop: 13
+    },
+
+    xxx: {
+      color: '#0bdc9f',
+      fontSize: 25,
+      //fontWeight: 'bold',
+      padding: 2
+    }
+
+
 
 
 })
